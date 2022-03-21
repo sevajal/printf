@@ -1,2 +1,2 @@
 # printf
-This is the repository for the proyect 
+This is the repository for the proyect "printf" with Ricardo Montaña.
