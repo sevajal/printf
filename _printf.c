@@ -6,7 +6,7 @@
  * Return: 0 if success.
  */
 
-int _printf(const char *format, ...)
+int _printf(char *format, ...)
 {
 	va_list args;
 	char *p;
