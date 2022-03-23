@@ -2,6 +2,7 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 
 /**
  * struct select - struct for functions
@@ -11,13 +12,15 @@
 typedef struct select
 {
 	char *type;
-	void (*f)(va_list);
+	int (*f)(va_list);
 } selection;
 
 int _putchar(char c);
-void _printf_char(va_list types);
-void _printf_int(va_list types);
-void _printf_string(va_list types);
+int _printf_char(va_list args);
+int _printf_int(va_list args);
+int _printf_string(va_list args);
+int _printf_unsigned(va_list args);
+int _printf_octal(va_list args);
 int _printf(const char *format, ...);
 
 #endif

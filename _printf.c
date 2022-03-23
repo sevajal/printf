@@ -11,11 +11,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0, i = 0, j = 0;
 
-	selection functions[] = {
-		{"c", _printf_char},
-		{"i", _printf_int},
-		{"s", _printf_string},
-		{"d", _printf_int},
+	selection functions[] = {{"c", _printf_char},
+		{"i", _printf_int}, {"s", _printf_string},
+		{"d", _printf_int}, {"u", _printf_unsigned},
+		{"o", _printf_octal},
 	};
 
 	if (format)
@@ -32,15 +31,18 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				i = i + 1;
-				j = 0;
-				while (functions[j].type)
+				if (format[i] == '%')
 				{
-					if (*(functions[j].type) == format[i])
+					_putchar(format[i]);
+					count += 1;
+				}
+				else
+				{
+					for (j = 0; functions[j].type; j++)
 					{
-						functions[j].f(args);
-						break;
+					if (*(functions[j].type) == format[i])
+						count += functions[j].f(args);
 					}
-					j++;
 				}
 			}
 		}
