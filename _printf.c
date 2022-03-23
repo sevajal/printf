@@ -6,37 +6,45 @@
  * Return: 0 if success.
  */
 
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list args;
-	char *p;
+	int count = 0, i = 0, j = 0;
 
-	va_start(args, format);
+	selection functions[] = {
+		{"c", _printf_char},
+		{"i", _printf_int},
+		{"s", _printf_string},
+		{"d", _printf_int},
+	};
 
-	for (p = format; *p; p++)
+	if (format)
 	{
-		if (*p != '%')
+		va_start(args, format);
+		for (i = 0; format[i]; i++)
 		{
-			_putchar(*p);
-			continue;
+			if (format[i] != '%')
+			{
+				_putchar(format[i]);
+				count += 1;
+				continue;
+			}
+			if (format[i] == '%')
+			{
+				i = i + 1;
+				j = 0;
+				while (functions[j].type)
+				{
+					if (*(functions[j].type) == format[i])
+					{
+						functions[j].f(args);
+						break;
+					}
+					j++;
+				}
+			}
 		}
-
-		switch (*++p)
-		{
-			case 'd':
-				_printf_int(va_arg(args, int));
-				break;
-			case 's':
-				_printf_string(va_arg(args, char*));
-				break;
-			case 'c':
-				_printf_char(va_arg(args, int));
-				break;
-			default:
-				_printf_char(*p);
-			break;
-		}
+		va_end(args);
 	}
-	va_end(args);
-	return (0);
+	return (count);
 }

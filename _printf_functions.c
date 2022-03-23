@@ -13,21 +13,24 @@ int _putchar(char c)
 
 /**
  * _printf_char - print a character.
- * @c: The character to print
+ * @args: args
  * Return: nothing.
  */
-void _printf_char(char c)
+void _printf_char(va_list args)
 {
+	char c = va_arg(args, int);
+
 	_putchar(c);
 }
 
 /**
  * _printf_string - prints a string.
- * @str: the string.
+ * @args: args.
  * Return: Nothing.
  */
-void _printf_string(char *str)
+void _printf_string(va_list args)
 {
+	char *str = va_arg(args, char*);
 	int i = 0;
 
 	for (i = 0; str[i]; i++)
@@ -36,12 +39,13 @@ void _printf_string(char *str)
 
 /**
  * _printf_int - prints an integer.
- * @n: The integer
+ * @args: args
  * Return: nothing
  */
-void _printf_int(int n)
+void _printf_int(va_list args)
 {
 	unsigned int i, abs, tmp;
+	int n = va_arg(args, int);
 
 	if (n < 0)
 	{
