@@ -16,34 +16,34 @@ int _printf(const char *format, ...)
 		{"d", _printf_int}, {"u", _printf_unsigned},
 		{"o", _printf_octal}, {"X", _printf_hexa},
 	};
-
-	if (format != NULL)
+	if (format)
 	{
 		va_start(args, format);
 		for (i = 0; format[i]; i++)
 		{
 			if (format[i] == '%')
 			{
+				if (format[i + 1] == '\0')
+					return (-1);
 				if (format[i + 1] == '%')
 				{
 					count += _putchar('%');
 					i += 2;
 				}
-				if (format[i + 1] != '%')
+				for (j = 0; functions[j].type; j++)
 				{
-					for (j = 0; functions[j].type; j++)
-					{
 					if (*(functions[j].type) == format[i + 1])
 					{
 						count += functions[j].f(args);
 						i += 2;
-					}
 					}
 				}
 			}
 			count += _putchar(format[i]);
 		}
 		va_end(args);
+		return (count);
 	}
-	return (count);
+	else
+		return (-1);
 }
