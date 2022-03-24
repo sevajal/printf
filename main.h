@@ -21,6 +21,7 @@ int _printf_int(va_list args);
 int _printf_string(va_list args);
 int _printf_unsigned(va_list args);
 int _printf_octal(va_list args);
+int _printf_hexa(va_list args);
 int _printf(const char *format, ...);
 
 #endif
