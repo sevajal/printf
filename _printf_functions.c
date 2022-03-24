@@ -38,12 +38,12 @@ int _printf_string(va_list args)
  */
 int _printf_int(va_list args)
 {
-	unsigned int i, abs, tmp;
+	unsigned int i, abs, tmp, count = 0;
 	int n = va_arg(args, int);
 
 	if (n < 0)
 	{
-		_putchar('-');
+		count += _putchar('-');
 		i = n * -1;
 	}
 	else
@@ -58,8 +58,8 @@ int _printf_int(va_list args)
 		tmp *= 10;
 	}
 	for (; tmp >= 1; tmp /= 10)
-		_putchar(((i / tmp) % 10) + '0');
-	return (1);
+		count += _putchar(((i / tmp) % 10) + '0');
+	return (count);
 }
 
 /**
@@ -69,7 +69,7 @@ int _printf_int(va_list args)
  */
 int _printf_unsigned(va_list args)
 {
-	unsigned int i, abs, tmp;
+	unsigned int i, abs, tmp, count = 0;
 	unsigned int n = va_arg(args, unsigned int);
 
 	i = n;
@@ -82,8 +82,8 @@ int _printf_unsigned(va_list args)
 		tmp *= 10;
 	}
 	for (; tmp >= 1; tmp /= 10)
-		_putchar(((i / tmp) % 10) + '0');
-	return (1);
+		count += _putchar(((i / tmp) % 10) + '0');
+	return (count);
 }
 
 /**
