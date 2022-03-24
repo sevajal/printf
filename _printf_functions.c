@@ -27,7 +27,11 @@ int _printf_string(va_list args)
 		str = "(null)";
 
 	for (i = 0; str[i]; i++)
+	{
 		_putchar(str[i]);
+		if (i >= 944)
+			break;
+	}
 	return (i);
 }
 
