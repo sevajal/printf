@@ -3,7 +3,7 @@
 /**
  * _printf_char - print a character.
  * @args: args
- * Return: nothing.
+ * Return: count of characters.
  */
 int _printf_char(va_list args)
 {
@@ -16,7 +16,7 @@ int _printf_char(va_list args)
 /**
  * _printf_string - prints a string.
  * @args: args.
- * Return: Nothing.
+ * Return: count of characters.
  */
 int _printf_string(va_list args)
 {
@@ -34,16 +34,16 @@ int _printf_string(va_list args)
 /**
  * _printf_int - prints an integer.
  * @args: args
- * Return: nothing
+ * Return: count of characters.
  */
 int _printf_int(va_list args)
 {
-	unsigned int i, abs, tmp;
+	unsigned int i, abs, tmp, count = 0;
 	int n = va_arg(args, int);
 
 	if (n < 0)
 	{
-		_putchar('-');
+		count += _putchar('-');
 		i = n * -1;
 	}
 	else
@@ -58,18 +58,18 @@ int _printf_int(va_list args)
 		tmp *= 10;
 	}
 	for (; tmp >= 1; tmp /= 10)
-		_putchar(((i / tmp) % 10) + '0');
-	return (1);
+		count += _putchar(((i / tmp) % 10) + '0');
+	return (count);
 }
 
 /**
  * _printf_unsigned - prints an unsigned integer.
  * @args: args
- * Return: nothing
+ * Return: count of characters.
  */
 int _printf_unsigned(va_list args)
 {
-	unsigned int i, abs, tmp;
+	unsigned int i, abs, tmp, count = 0;
 	unsigned int n = va_arg(args, unsigned int);
 
 	i = n;
@@ -82,37 +82,29 @@ int _printf_unsigned(va_list args)
 		tmp *= 10;
 	}
 	for (; tmp >= 1; tmp /= 10)
-		_putchar(((i / tmp) % 10) + '0');
-	return (1);
+		count += _putchar(((i / tmp) % 10) + '0');
+	return (count);
 }
 
 /**
  * _printf_octal - prints an octal number.
  * @args: args
- * Return: nothing
+ * Return: count of characters.
  */
 int _printf_octal(va_list args)
 {
 	unsigned int decimalnum = va_arg(args, unsigned int);
-	unsigned int octalNumber = 0, i = 1, j, abs, tmp;
+	int i = 0, j, count = 0;
+	int octalNumber[50];
 
-	while (decimalnum != 0)
+	for (i = 0; decimalnum > 0; i++)
 	{
-		octalNumber += (decimalnum % 8) * i;
-		decimalnum /= 8;
-		i *= 10;
+		octalNumber[i] = decimalnum % 8;
+		decimalnum = decimalnum / 8;
 	}
-
-	j = octalNumber;
-	abs = j;
-	tmp = 1;
-
-	while (abs > 9)
+	for (j = i - 1; j >= 0; j--)
 	{
-		abs /= 10;
-		tmp *= 10;
+		_putchar(octalNumber[j]);
 	}
-	for (; tmp >= 1; tmp /= 10)
-		_putchar(((j / tmp) % 10) + '0');
-	return (1);
+	return (count);
 }
