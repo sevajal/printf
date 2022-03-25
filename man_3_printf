@@ -3,6 +3,7 @@
 .TH _PRINTF 3 "24 March 2022" "0x11. C" "_printf man page"
 
 .SH SYNOPSIS
+
 .B #include \fB"main.h"
 .B int printf(const char *\fIformat\fB, ...);
 
