@@ -16,11 +16,14 @@
 
 .B \fB_printf()\fR
 
-The \fB_printf()\fR function produce output according to a format as described below.  The \fB_printf()\fR function write output to stdout, the standard output stream and return the number of characters printed.
+The \fB_printf()\fR function produces output according to a format as
+described below. The \fB_printf()\fR function write output to stdout,
+the standard output stream and return the number of characters printed.
 
-The function write the output under the control of a format string that specifies how subsequent arguments are converted for output.
+The function write the output under the control of a format string that
+specifies how subsequent arguments are converted for output.
 
-\fBFormat of the format string\fR
+\fBFORMAT of the format string\fR
 
 The format string is a character string, beginning and ending in
 its initial shift state, if any.  The format string is composed
@@ -35,21 +38,30 @@ The overall syntax of a conversion specification is:
 
 \fB%conversion\fR
 
-The arguments must correspond properly (after type promotion) with the conversion specifier.  By default, the arguments are used in the order given and each conversion specifier asks for the next  argument (and it is an error if insufficiently many arguments are  given).
+The arguments must correspond properly (after type promotion) with
+the conversion specifier. By default, the arguments are used in the
+order given and each conversion specifier asks for the next
+argument (and it is an error if insufficiently many arguments are
+given).
 
 \fBConversion especifies\fR
 
 A character that specifies the type of conversion to be applied.
 The conversion specifiers and their meanings are:
 
-.ti 5[\fBd, i\fR]	The int argument is converted to signed decimal notation.
+d, i		The int argument is converted to signed decimal notation.
 
-.ti 5[\fBu, X\fR]	The unsigned int argument is converted to unsigned decimal (u), or unsigned hexadecimal (the letters ABCDEF are used for X conversions.
-.ti 5[\fBc\fR]		The int argument is converted to an unsigned char, and the resulting character is written.
+X		The unsigned int argument is converted to unsigned decimal (u), or
+		unsigned hexadecimal (the letters ABCDEF are used for X conversions.
+c		The int argument is converted to an unsigned char, and the resulting
+		character is written.
 
-.ti 5[\fBs\fR]		The const char * argument is expected to be a pointer to an array of character type (pointer to a string).  Characters from the array are written up to (but not including) a terminating null byte ('\0').
+s		The const char * argument is expected to be a pointer to an array of
+		character type (pointer to a string).  Characters from the array are
+		written up to (but not including) a terminating null byte ('\0').
 
-.ti 5[\fB%\fR]		A '%' is written.  No argument is converted.  The complete conversion specification is '%%'.
+%		A '%' is written. No argument is converted. The complete conversion
+		specification is '%%'.
 
 \fBRETURN VALUE\fR
 Upon successful return, these function return the number of characters printed (excluding the null byte used to end output to strings).
