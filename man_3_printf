@@ -14,6 +14,7 @@
 .B #include \fB"main.h"
 .B int printf(const char *\fIformat\fB, ...);
 
+
 .SH DESCRIPTION
 .B \fB_printf()\fR
 The \fB_printf()\fR function produce output according to a format as described below.  The \fB_printf()\fR function write output to stdout, the standard output stream and return the number of characters printed.
