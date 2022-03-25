@@ -43,8 +43,7 @@ The conversion specifiers and their meanings are:
 
 .ti 5[\fBd, i\fR]	The int argument is converted to signed decimal notation.
 
-.ti 5[\fBu, X\fR]
-The unsigned int argument is converted to unsigned decimal (u), or unsigned hexadecimal (the letters ABCDEF are used for X conversions.
+.ti 5[\fBu, X\fR]	The unsigned int argument is converted to unsigned decimal (u), or unsigned hexadecimal (the letters ABCDEF are used for X conversions.
 .ti 5[\fBc\fR]		The int argument is converted to an unsigned char, and the resulting character is written.
 
 .ti 5[\fBs\fR]		The const char * argument is expected to be a pointer to an array of character type (pointer to a string).  Characters from the array are written up to (but not including) a terminating null byte ('\0').
