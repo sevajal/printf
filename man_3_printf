@@ -12,10 +12,6 @@
 .B _printf
 - Formatted output conversion.
 
-.SH SYNOPSIS
-.B #include \fB"main.h"
-.B int printf(const char *\fIformat\fB, ...);
-
 .SH DESCRIPTION
 
 .B \fB_printf()\fR
