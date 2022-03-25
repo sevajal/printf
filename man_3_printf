@@ -50,4 +50,4 @@ The complete conversion specification is \[ga]%%\[cq].
 \&.PP VALUE Upon successful return, these function return the number of
 characters printed (excluding the null byte used to end output to
 strings).
-\&.PP Written by Ricardo Monta[\[ti]n]a and Sebastian Carvajal
+\&.PP Written by Ricardo Montaña and Sebastian Carvajal
