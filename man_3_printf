@@ -20,6 +20,7 @@ The \fB_printf()\fR function produce output according to a format as described b
 The function write the output under the control of a format string that specifies how subsequent arguments are converted for output.
 
 \fBFormat of the format string\fR
+
 The format string is a character string, beginning and ending in
 its initial shift state, if any.  The format string is composed
 of zero or more directives: ordinary characters (not %), which
